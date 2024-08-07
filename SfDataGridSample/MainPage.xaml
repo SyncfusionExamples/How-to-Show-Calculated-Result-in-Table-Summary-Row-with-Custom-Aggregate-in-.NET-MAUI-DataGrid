@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:local="clr-namespace:SfDataGridSample"
+             x:Class="SfDataGridSample.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:TransactionViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:CustomAggregate x:Key="customAggregate" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <syncfusion:SfDataGrid x:Name="sfGrid" Margin="10"
+                           GridLinesVisibility="Both"
+                           DefaultColumnWidth="120"
+                           HeaderGridLinesVisibility="Both"
+                           AutoGenerateColumnsMode="None"
+                           ItemsSource="{Binding Transactions}">
+
+        <syncfusion:SfDataGrid.Columns>
+            <syncfusion:DataGridNumericColumn MappingName="TransactionId"
+                                              Format="#"
+                                              HeaderText="ID" />
+            <syncfusion:DataGridNumericColumn MappingName="Debit"
+                                              HeaderText="Debit" />
+            <syncfusion:DataGridNumericColumn MappingName="Credit"
+                                              HeaderText="Credit" />
+            <syncfusion:DataGridNumericColumn MappingName="Balance"
+                                              HeaderText="Balance" />
+        </syncfusion:SfDataGrid.Columns>
+
+        <syncfusion:SfDataGrid.TableSummaryRows>
+            <syncfusion:DataGridTableSummaryRow 
+                                            ShowSummaryInRow="False">
+                <syncfusion:DataGridTableSummaryRow.SummaryColumns>
+                    <syncfusion:DataGridSummaryColumn Name="Debit"
+                                                  Format="{}{Sum:C0}"
+                                                  MappingName="Debit"
+                                                  SummaryType="DoubleAggregate" />
+                    <syncfusion:DataGridSummaryColumn Name="Credit"
+                                                      Format="{}{Sum:C0}"
+                                                  MappingName="Credit"
+                                                      SummaryType="DoubleAggregate" />
+                </syncfusion:DataGridTableSummaryRow.SummaryColumns>
+            </syncfusion:DataGridTableSummaryRow>
+            
+            <syncfusion:DataGridTableSummaryRow ShowSummaryInRow="True"
+                                                Title="Balance: {Debit} Db">
+                <syncfusion:DataGridTableSummaryRow.SummaryColumns>
+                    <syncfusion:DataGridSummaryColumn Name="Debit"
+                                                      CustomAggregate="{StaticResource customAggregate}"
+                                                      Format="{}{Balance}"
+                                                      MappingName="Debit"
+                                                      SummaryType="Custom" />
+
+                </syncfusion:DataGridTableSummaryRow.SummaryColumns>
+            </syncfusion:DataGridTableSummaryRow>
+        </syncfusion:SfDataGrid.TableSummaryRows>
+    </syncfusion:SfDataGrid>
+
+</ContentPage>
