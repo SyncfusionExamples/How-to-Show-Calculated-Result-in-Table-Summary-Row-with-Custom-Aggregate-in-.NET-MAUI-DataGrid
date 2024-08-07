@@ -116,7 +116,7 @@ Take a moment to explore this [documentation](https://help.syncfusion.com/maui/d
  
 ##### Conclusion
  
-I hope you enjoyed learning about how to Show Calculated Result in Table Summary Row with Custom Aggregate in .NET MAUI DataGrid (SfDataGrid).
+I hope you enjoyed learning about how to show calculated result in table summary row with custom aggregate in .NET MAUI DataGrid (SfDataGrid)..
  
 You can refer to our [.NET MAUI DataGrid’s feature tour](https://www.syncfusion.com/maui-controls/maui-datagrid) page to learn about its other groundbreaking feature representations. You can also explore our [.NET MAUI DataGrid Documentation](https://help.syncfusion.com/maui/datagrid/getting-started) to understand how to present and manipulate data. 
 For current customers, you can check out our .NET MAUI components on the [License and Downloads](https://www.syncfusion.com/sales/teamlicense) page. If you are new to Syncfusion, you can try our 30-day [free trial](https://www.syncfusion.com/downloads/maui) to explore our .NET MAUI DataGrid and other .NET MAUI components.
